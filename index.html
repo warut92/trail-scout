@@ -19,7 +19,7 @@ font-family: 'Sarabun', sans-serif;
     <div id="trail_1"></div>
     <span id="key_1">เลือกชื่อสัตว์ให้ถูกต้อง</span><br>
 <select onchange="getName(this.value)">
-  <optgroup label="เลือกสัตว์">
+  <optgroup label="เลือกชื่อสัตว์">
     <option value="1">หมูป่า</option>
     <option value="2">แมว</option>
     <option value="3">ช้าง</option>
@@ -45,9 +45,6 @@ font-family: 'Sarabun', sans-serif;
 
 let p = 0
   function getName(v) {
-
-    console.log(index1);
-   console.log(Number(v));
    if (index1 === Number(v)) {
      document.getElementById('key_1').innerHTML = "Good!";
      p++
