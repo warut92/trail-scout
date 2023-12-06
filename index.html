@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สะกดรอย</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&family=Sarabun:wght@300&display=swap" rel="stylesheet">
+<style media="screen">
+  *, select > option {
+    font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+font-family: 'Sarabun', sans-serif;
+  }
+</style>
+  </head>
+  <body>
+    <h4>ให้ลูกเสือเนตรนารี บอกชื่อรอยเท้าสัตว์ตามรูปภาพที่กำหนดให้ให้ถูกต้อง อย่างน้อย 3 รอยเท้า</h4>
+    <div id="trail_1"></div>
+    <span id="key_1">เลือกชื่อสัตว์ให้ถูกต้อง</span><br>
+<select onchange="getName(this.value)">
+  <optgroup label="เลือกสัตว์">
+    <option value="1">หมูป่า</option>
+    <option value="2">แมว</option>
+    <option value="3">ช้าง</option>
+    <option value="4">กระทิง</option>
+    <option value="5">แรด</option>
+    <option value="6">เสือ</option>
+    <option value="7">หมี</option>
+    <option value="8">จระเข้</option>
+    <option value="9">นกเป็ดน้ำ</option>
+  </optgroup>
+</select>
+<br>
+<br>
+<span id="points">0 คะแนน</span>
+  </body>
+  <script type="text/javascript">
+  let index1 = ""
+  function getTrail() {
+    index1 = Math.floor(Math.random() * 8) + 1;
+    document.getElementById("trail_1").innerHTML = "<img src=\"img/" + index1 + ".png\" >";
+  }
+  getTrail()
+
+let p = 0
+  function getName(v) {
+
+    console.log(index1);
+   console.log(Number(v));
+   if (index1 === Number(v)) {
+     document.getElementById('key_1').innerHTML = "Good!";
+     p++
+     if (p == 3) {
+       document.getElementById('points').innerHTML = p + " คะแนน ลูกเสือผ่านแล้วครับ";
+     } else {
+       document.getElementById('points').innerHTML = p + " คะแนน";
+     }
+    getTrail()
+   } else {
+     document.getElementById('key_1').innerHTML = "Noooo!";
+   }
+  }
+  </script>
+</html>
