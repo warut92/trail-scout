@@ -38,7 +38,7 @@ font-family: 'Sarabun', sans-serif;
   <script type="text/javascript">
   let index1 = ""
   function getTrail() {
-    index1 = Math.floor(Math.random() * 8) + 1;
+    index1 = Math.floor(Math.random() * 9) + 1;
     document.getElementById("trail_1").innerHTML = "<img src=\"img/" + index1 + ".png\" >";
   }
   getTrail()
@@ -46,16 +46,18 @@ font-family: 'Sarabun', sans-serif;
 let p = 0
   function getName(v) {
    if (index1 === Number(v)) {
-     document.getElementById('key_1').innerHTML = "Good!";
+     document.getElementById('key_1').innerHTML = "เป็นคำตอบที่ถูกต้องครับ! 👏";
      p++
      if (p == 3) {
-       document.getElementById('points').innerHTML = p + " คะแนน ลูกเสือผ่านแล้วครับ";
+       document.getElementById('points').innerHTML = p + " คะแนน ลูกเสือผ่านแล้วครับ 🐯" + "<br><img src=\"https://www.clipartbest.com/cliparts/dT8/RLj/dT8RLjKTe.gif\">";
      } else {
        document.getElementById('points').innerHTML = p + " คะแนน";
      }
     getTrail()
    } else {
-     document.getElementById('key_1').innerHTML = "Noooo!";
+     p--
+     document.getElementById('key_1').innerHTML = "ยังไม่ถูก ลองใหม่ครับ! 👎";
+     document.getElementById('points').innerHTML = p + " คะแนน";
    }
   }
   </script>
