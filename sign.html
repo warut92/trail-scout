@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>เครื่องหมายสะกดรอย</title>
+    <style media="screen">
+      img {
+        width: 100%;
+      }
+      .sign {
+        width: 25%;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+    <h1>เครื่องหมายสะกดรอย</h1>
+    <p id="score"></p>
+    <button id="btn1" type="button" name="button" onclick="start()">เริ่ม</button>
+    <br>
+    <img src="./signs/forestbg.jpg" alt="">
+    <p id="text"></p>
+    <p id="msg"></p>
+    <br>
+    <span id="sign"></span>
+    <button id="btn2" type="button" name="button" onclick="start()" style="display:none">อ่านต่อ</button>
+    <div id="selector" style="display:none">
+      <button onclick="checkAns(1)">ตรงไป</button>
+      <button onclick="checkAns(2)">เลี้ยวซ้าย</button>
+      <button onclick="checkAns(3)">เลี้ยวขวา</button>
+      <button onclick="checkAns(4)">ไปตามลูกศร 3 เก้า</button>
+      <button onclick="checkAns(5)">อันกราย, ขอความช่วยเหลือ</button>
+      <button onclick="checkAns(6)">ไม่ใช่ทางนี้</button>
+      <button onclick="checkAns(7)">กลับบ้านได้</button>
+    </div>
+
+  </body>
+  <script type="text/javascript">
+  let state = 0
+  function start() {
+    document.getElementById('btn1').style.display = "none"
+    state++
+    if (state === 1) {
+      document.getElementById('btn2').style.display = "block"
+      document.getElementById('text').innerHTML = "ขณะนี้ลูกเสือเนตรนารีได้รับมอบหมาบภารกิจ ให้ไปสำรวจเส้นทาง";
+    } else if (state === 2) {
+
+      document.getElementById('text').innerHTML = "ในระหว่างทาง ได้พบกับเครื่องหมาย";
+      document.getElementById('text').innerHTML = "ในระหว่างทาง ได้พบกับเครื่องหมาย";
+    } else if (state > 2) {
+      document.getElementById('selector').style.display = "block"
+      randomImg()
+      console.log("ok");
+    }
+    console.log("s ",state);
+  }
+let random1 = ""
+let random2 = ""
+
+
+  function randomImg() {
+    document.getElementById('btn2').style.display = "none"
+
+    if (state < 7) {
+      random1 = Math.floor(Math.random() * 4) + 1;
+      random2 = Math.floor(Math.random() * 3) + 1;
+      console.log("a");
+      console.log(random1, random2);
+
+    } else if (state === 12) {
+      random1 = Math.floor(Math.random() * 4) + 1;
+      random2 = 7
+      console.log("b");
+
+    } else if (state > 10) {
+      random1 = Math.floor(Math.random() * 4) + 1;
+      random2 = Math.floor(Math.random() * 6) + 2;
+      console.log("c");
+
+    }
+    let randomStr = "<img class=\"sign\" src=\"./signs/" + random1 +""+ random2 + ".png\">"
+    document.getElementById('sign').innerHTML = randomStr
+    console.log('RANDOMSTR', randomStr)
+    state++
+
+    console.log("s", state);
+
+  }
+
+  function checkAns(v) {
+    if (random2 === v) {
+      document.getElementById('msg').innerHTML = "ถูกต้องครับ";
+      setTimeout(correct, 3000)
+      randomImg()
+    } else {
+        document.getElementById('msg').innerHTML = "ไม่ถูกต้องครับ ถ้าไปอาจหลงทางได้";
+    }
+
+  }
+
+  function correct() {
+    document.getElementById('msg').innerHTML = "";
+  }
+  console.log("s11", state);
+
+
+  if (state === 12) {
+    document.getElementById('msg').innerHTML = "เสร็จสิ้นภาระกิจ กลับบ้าน!";
+  }
+
+  </script>
+</html>
