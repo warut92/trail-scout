@@ -4,10 +4,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped:wght@500&family=Sarabun:wght@200;400&display=swap" rel="stylesheet">
   <title>เครื่องหมายสะกดรอย</title>
   <style media="screen">
     img {
-      width: 100%;
+      width: 80%;
     }
 
     .sign {
@@ -18,7 +21,7 @@
       background-color: #04AA6D;
       border: none;
       color: white;
-      padding: 15px 32px;
+      padding: 5px 5px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
@@ -26,18 +29,23 @@
       margin: 2px 2px;
       cursor: pointer;
     }
+    body, button  {
+  font-family: "Sarabun", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
   </style>
 </head>
 
 <body>
   <center>
     <h1>เครื่องหมายสะกดรอย</h1>
-    <p id="score"></p>
     <button id="btn1" type="button" name="button" onclick="start()">เริ่ม</button>
     <br>
     <img id="bg" src="./signs/forestbg.jpg" alt="" style="display:none">
     <p id="text"></p>
     <p id="msg"></p>
+    <p id="score"></p>
     <br>
     <span id="sign"></span>
     <button id="btn2" type="button" name="button" onclick="start()" style="display:none">อ่านต่อ</button>
@@ -80,7 +88,7 @@
       random2 = 7
       console.log("= 12");
 
-    } else if (state > 7) {
+    } else if (state >= 7) {
       random1 = Math.floor(Math.random() * 4) + 1;
       random2 = Math.floor(Math.random() * 6) + 1;
       console.log("> 7");
